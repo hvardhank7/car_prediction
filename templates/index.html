@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://use.fontawesome.com/ba5ad5b5a1.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Car Selling Price Prediction</title>
+    <style>
+        form {
+                 text-align: center;
+                 background-color: #CD5C5C;}
+    </style>
+</head>
+
+
+<body>
+    <div>
+        <form  class="form" action="{{ url_for('predict')}}" method="post">
+            <h2 style="font-size:70px;">Car Selling Price Prediction</h2>
+           <br><br>
+             <div class="form-group">
+                <label style="font-weight: 900">Registered Year </label>
+                <input id="first" name="Year" type="number "required />
+            </div>
+            <br>
+             <div class="form-group">
+                <label style="font-weight: 900">Showroom Price(In lakhs)</label>
+                <input id="second" name="Present_Price" type="number "required />
+            </div>
+            <br>
+            <div class="form-group">
+                <label style="font-weight: 900">Total Kilometers Driven</label>
+                <input id="third" name="Kms_Driven" type="number "required />
+            </div>
+            <br>
+            <div class="form-group">
+                <label style="font-weight: 900">Fuel type</label>
+                <select name="Fuel_Type_Petrol" id="fuel" required="required">
+                        <option value="Petrol">Petrol</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="CNG">CNG</option>
+                </select>
+            </div>
+            <br>
+            <div class="form-group">
+                 <label style="font-weight: 900">Seller Type</label>
+                <select name="Seller_Type_Individual" id="resea" required="required">
+                    <option value="Dealer">Dealer</option>
+                    <option value="Individual">Individual</option>
+                </select>
+            </div>
+            <br>            
+             <div class="form-group">
+                 <label style="font-weight: 900">Transmission type</label>
+                    <select name="Transmission_Mannual" id="research" required="required">
+                        <option value="Mannual">Manual Car</option>
+                        <option value="Automatic">Automatic Car</option>
+                    </select>
+            </div>
+     
+            <br><br>
+            <button id="sub" class="btn btn-primary" type="submit ">Predict the Selling Price</button>
+            <br
+
+        </form>
+
+        <br><br><h3 >{{ prediction_text }}<h3>
+    </div>
+</body>
+</html>
